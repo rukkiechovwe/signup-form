@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>SignUp</title>
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+	<link href='https://fonts.googleapis.com/css?family=Righteous' rel='stylesheet'>
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="http://parsleyjs.org/dist/parsley.js"></script> -->
+	<!-- <link rel="stylesheet" type="text/css" href="index.css"> -->
+</head>
+<body>
+	<div class="wrapper opacity">
+		<!-- <img class="login-img" src="./img/undraw_secure_login_pdn4.svg"> -->
+		<div class="sign-up">
+			<h2>SIGN UP</h2>
+			<form autocomplete="off" id="sign-up-form" method="post">
+				<div class="form-control">
+					<input type="text" name="name" id="username" placeholder="John Doe">
+					<label for="name"><span class="content-name">Username:</span></label>
+					<span class="message"></span>
+				</div>
+				<div class="form-control">
+					<input type="email" name="email" id="email" placeholder="abcde@gmail.com">
+					<label for="email"><span class="content-name">Email:</span></label>
+					<span class="message"></span>
+				</div>
+				<div class="form-control">
+					<input type="password" name="password" id="password" placeholder="Enter Password">
+					<label for="password"><span class="content-name">Password:</span></label>
+					<span class="message"></span>
+				</div>
+				<div class="form-control">
+					<input type="password" name="password" id="confirm-password" placeholder="Confirm Password">
+					<label for="password"><span class="content-name">Confirm Password:</span></label>
+					<span class="message"></span>
+				</div>
+				<button type="submit" id="submit">SIGN UP</button>
+			</form>
+			<a href="#" class="login-link"><span>Login</span> <i class="fas fa-arrow-right"></i></a>
+		</div>
+	</div>
+	<div class="white-bg"></div>
+</body>
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+	body{
+		font-family: "Righteous",segoe UI;
+		font-size: 100%;
+		width: 100%;
+		height: 100vh;
+		display: flex;
+		background: rgb(191,0,0);
+		background: linear-gradient(90deg, rgba(191,0,0,1) 0%, rgba(255,141,0,1) 100%);
+	}
+	a{
+		text-decoration: none;
+	}
+	.login-img{
+		width: 32%;
+    	padding-right: 25px;
+	}
+	input,button{
+		font-size: 100%;
+		font-family: inherit;
+		border: none;outline: none;
+	}
+	h2{
+		color: #fff;
+		padding-bottom: 20px;
+	}
+	.wrapper{
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 99;
+		width: 100%;
+	}
+	@keyframes fadeIn{
+		from{
+			opacity: 0;
+		}
+		to{
+			opacity: 1;
+		}
+	}
+	.sign-up{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 650px;
+		height: 100%;
+	}
+	form{
+		width: 350px;
+	    padding:0 20px;
+	    background-color: #fff;
+	   	border-radius: 10px;
+   		box-shadow: 0px 0px 10px 1px #0000004a;
+   		padding-top: 10px;
+	}
+	form > div {
+		margin: 8px 0;
+	    height: 70px;
+	    position: relative;
+	    overflow: hidden;
+	}
+	label{
+		position: absolute;
+	    bottom: 25px;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    pointer-events: none;
+	    border-bottom: 2px solid #000;
+	}
+	.error{
+		border-bottom: 2px solid red;
+		color: red;
+	}
+	.success{
+		border-bottom: 2px solid #2ecc71;
+		color: #2ecc71;
+	}
+	.content-name{
+		position: absolute;
+		bottom: 20px;
+		left: 0px;
+		font-size: 13px;
+	}
+	input{
+		width: 100%;
+	    height: 100%;
+	    padding-top: 0px;
+	    box-sizing: border-box;
+	    background: transparent;
+	    outline: none;
+	    color: #000;
+	    font-size: 15px;
+	}
+	input::placeholder{
+		color: #bdbdbd;
+	}
+	/*.success-input{
+		color: #2ecc71;
+	}*/
+	button{
+	    background: rgb(191,0,0);
+		background: linear-gradient(90deg, rgba(191,0,0,1) 0%, rgba(255,141,0,1) 100%);
+	    width: 100%;
+	    color: #fff;
+	    padding: 5px;
+	    border-radius: 10px;
+	    margin: 15px 0 25px;
+	    cursor: pointer;
+	}
+	.message{
+		position: absolute;
+	    top: 46px;
+	    font-size: 14px;
+	    left: 0;
+	}
+	.error-message{
+		color: red;
+	}
+	.success-message{
+		color: #2ecc71;
+	}
+	.login-link{
+		margin-top: 20px;
+		color: rgb(191,0,0);
+	}
+	.white-bg{
+		background-color: #fff;
+		width: 100%;
+		height: 34%;
+		position: absolute;
+		bottom: 0;
+		z-index: -1;
+	}
+
+	@media screen and (max-width:1024px){
+		.wrapper{padding:20px 0 10px 40px;}
+		.login-img{width: 35%;}
+	}
+	@media screen and (max-width:768px){
+		.wrapper{padding:20px;}
+		.login-img{display: none;}
+		.sign-up{width: 100%;}
+	}
+	@media screen and (max-width:430px){
+		form{width: 300px;}
+	}
+	@media screen and (max-width:330px){
+		form{width: 260px}
+	}
+
+
+</style>
+<script type="text/javascript">
+	const userName = document.getElementById('username');
+	const email = document.getElementById('email');
+	const password1 = document.getElementById('password');
+	const password2 = document.getElementById('confirm-password');
+	const form = document.querySelector("form");
+
+	form.addEventListener("submit",(e)=>{
+		validationInputs();
+		e.preventDefault();
+	})
+	const validationInputs = ()=>{
+		const userNameValue = username.value.trim();
+		const emailValue = email.value.trim();
+		const password1Value = password1.value.trim();
+		const password2Value = password2.value.trim();
+
+		if (userNameValue === "") {
+			showError(username,"Username cannot be Blank");
+		}
+		else{
+			showSuccess(username,"Username is good")
+		}
+
+		if (emailValue === "") {
+			showError(email,"Email cannot be Blank");
+		}else if (!isEmail(emailValue)){
+			showError(email,"Email is not valid")
+		}
+		else{
+			showSuccess(email,"Email is good")
+		}
+
+		if (password1Value === "") {
+			showError(password,"Password cannot be Blank");
+		}else if (password1Value.length < 7){
+			showError(password,"Password is too short");
+		}
+		else{
+			showSuccess(password,"Password is good")
+		}
+
+		if (password2Value === "") {
+			showError(password2,"Password cannot be Blank");
+		}else if (password1Value !== password2Value){
+			showError(password2,"Password does not match");
+		}
+		else{
+			showSuccess(password2,"Password matches")
+		}
+
+	}
+	const showError = (input,message)=>{
+		const formControl = input.parentElement;
+		const errorMessage = formControl.querySelector('.message');
+		error = formControl.querySelector('label');
+
+		errorMessage.innerText = message;
+		errorMessage.className = "message error-message";
+		error.className = "error";
+	}
+
+	const showSuccess = (input,message)=>{
+		const formControl = input.parentElement;
+		const successMessage = formControl.querySelector('.message');
+		successInput = formControl.querySelector('input');
+		success = formControl.querySelector('label');
+
+		successMessage.innerText = message;
+		successMessage.className = "message success-message";
+		success.className = "success";
+		// successInput.className = "success-input"
+	}
+
+	const isEmail = (email)=>{
+		const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  		return re.test(email);
+	}
+
+</script>
+</html>
